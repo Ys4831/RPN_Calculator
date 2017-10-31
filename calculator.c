@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 
-typedef float val;
+typedef double val;
 #define Y stack[stacksize - 2]
 #define X stack[stacksize - 1]
 
@@ -65,9 +65,11 @@ int main () {
             }
         } else if (strcmp(cmd, "chs") == 0) {
             X = -X;
+        } else if (strcmp(cmd, "inv") == 0) {                                   //inverse
+            X = 1/X;
         } else if ((cmd[0] >= 48) && (cmd[0] <= 57)) {                          //number
             val nb;
-            sscanf(cmd, "%g", &nb);
+            sscanf(cmd, "%lg", &nb);
             stack[stacksize] = nb;
             stacksize++;            
         } else {                                                                //error
